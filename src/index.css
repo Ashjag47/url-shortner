@@ -6,8 +6,7 @@
 
 @layer base {
   :root {
-
-    --background: 0 0% 100%;
+    /* --background: 0 0% 100%; */
 
     --foreground: 224 71.4% 4.1%;
 
@@ -55,9 +54,7 @@
 
     --chart-5: 27 87% 67%;
 
-    --radius: 0.5rem
-  }
-  .dark {
+    --radius: 0.5rem;
 
     --background: 224 71.4% 4.1%;
 
@@ -105,7 +102,7 @@
 
     --chart-4: 280 65% 60%;
 
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 
