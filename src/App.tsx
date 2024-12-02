@@ -3,9 +3,7 @@ import './App.css'
 function App() {
 
   return (
-    <>
-    HI     
-    </>
+    <div className='text-xl'>Hi I am Ashish P</div>
   )
 }
 
