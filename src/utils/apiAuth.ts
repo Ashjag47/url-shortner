@@ -62,3 +62,13 @@ export async function signup(
 
   return data;
 }
+
+export async function logout() {
+  console.log('start');
+  const { error } = await supabase.auth.signOut();
+  if (error) {
+    throw new Error(error.message);
+  }
+  console.log('done');
+  return true;
+}
