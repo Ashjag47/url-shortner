@@ -10,8 +10,12 @@ const AppLayout = () => {
         <Outlet />
       </main>
 
-      <div className="p-10 text-center bg-gray-800 mt-10">
-        Made with ❤️ by AshJag
+      {/* Footer */}
+      <div className="p-6 text-center bg-gray-900 text-white mt-10 rounded-t-lg shadow-lg">
+        <p className="text-sm sm:text-base">
+          Made with <span className="text-red-500">❤️</span> by{' '}
+          <strong>AshJag</strong>
+        </p>
       </div>
     </div>
   );

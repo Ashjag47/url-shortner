@@ -18,10 +18,16 @@ const Header = () => {
 
   return (
     <nav className="py-4 flex justify-between items-center">
-      <Link to="/">
-        <img src="/logo.png" alt="sharpener logo" className="h-16" />
+      {/* LOGO */}
+      <Link to="/" className="group">
+        <img
+          src="/logo.png"
+          alt="Sharpener Logo"
+          className="h-16 w-16 rounded-full shadow-[0_0_10px_5px_rgba(255,255,255,0.5)] transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6"
+        />
       </Link>
 
+      {/* Login / user dropdown */}
       <div>
         {!user ? (
           <Button onClick={() => navigate('/auth')} className="mr-4">
