@@ -20,7 +20,7 @@ const UrlProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     fetchUser();
-  }, [fetchUser]);
+  }, []);
 
   return (
     <UrlContext.Provider value={{ user, fetchUser, loading, isAuthenticated }}>

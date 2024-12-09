@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PacmanLoader } from 'react-spinners';
 import { Button } from '@/components/ui/button';
@@ -9,9 +9,12 @@ import { UrlState } from '@/context';
 import { getUrls } from '@/utils/apiUrls';
 import { getClicksForUrls } from '@/utils/apiClicks';
 import Error from '@/components/Error';
+import UrlResponse from '@/models/UrlResponse';
+import LinkCard from '@/components/LinkCard';
 
 const Dashboard = () => {
-  const [searchQuery, setSearchQuery] = React.useState('');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredUrls, setFilteredUrls] = useState<UrlResponse[]>([]);
 
   const { user } = UrlState();
   // call the getUrls function to fetch the user's urls
@@ -37,6 +40,13 @@ const Dashboard = () => {
     if (urls && urls.length > 0) {
       fnGetClicksForUrls();
     }
+    setFilteredUrls(
+      urls?.filter((url) =>
+        (url?.original_url ?? '')
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase())
+      ) || []
+    );
   }, [urls]);
 
   return (
@@ -84,6 +94,12 @@ const Dashboard = () => {
             />
             <Filter className="absolute top-0 right-2 p-1 w-10 h-10" />
           </div>
+          {
+            // Display the filtered urls
+            filteredUrls.map((url) => (
+              <LinkCard key={url.id} url={url} fnGetUrls={fnGetUrls} />
+            ))
+          }
         </>
       )}
     </div>
